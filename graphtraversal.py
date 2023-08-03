@@ -78,14 +78,26 @@ class Graph(object):
         return self.graph[node1][node2]
 
 class Solution:
-    
     def spath_algo(self, graph, start_node):
-            # path = []
-            # num = 0
-            # g = Graph(graph, )
-            # for key in graph:
+            path = []
+            path.append(start_node)
+            num = 0
+            nodes = graph.get_nodes()
+            value = 0
+            currnode = {}
+            for node in graph:
+                connections = graph.get_outgoing_edges(node) 
+                for conn in connections:
+                    val = graph.value(node, conn)
+                    if val < value:
+                        value = val
+                        currnode = conn
+                path.append(currnode)
+                num += graph.value(node, currnode)
+            print(path)
+            return num
                 
-            print(graph)
+            #print(graph)
             #type graph: String Dictionary
             #type start_node: 
             #return type: int
