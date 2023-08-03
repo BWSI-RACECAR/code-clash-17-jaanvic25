@@ -84,7 +84,7 @@ class Solution:
             num = 0
             nodes = graph.get_nodes()
             value = 0
-            currnode = {}
+            currnode = start_node
             for node in nodes:
                 connections = graph.get_outgoing_edges(node) 
                 for conn in connections:
